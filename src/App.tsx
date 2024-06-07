@@ -1,11 +1,20 @@
 
 import './App.css'
 
+import NavBar from "./components/navbar/NavBar.tsx";
+import Sidebar from "./components/Sidebar/Sidebar.tsx";
+
 function App() {
 
 
   return (
-      <div className={""}>salman</div>
+      <div>
+        <NavBar/>
+        <hr/>
+        <div className="app-content flex">
+          <Sidebar/>
+        </div>
+      </div>
   )
 }
 
