@@ -9,13 +9,24 @@ const  List=()=>{
 
     const fetchList =async ()=>{
         const  response=  await axios.get('http://localhost:4000/api/food/list')
-        console.log(response.data.data)
         if(response.data.success){
             setList(response.data.data)
 
         }else {
             alert('error')
         }
+
+    }
+
+    const removeFood=async (foodId: any)=>{
+
+        // @ts-ignore
+        const response=await axios.delete(`http://localhost:4000/api/food/remove/${foodId}`);
+       await fetchList()
+        if(response.data.success){
+            alert('data delete')
+        }
+
 
     }
 
@@ -35,13 +46,13 @@ const  List=()=>{
                         <b>Action</b>
                     </div>
                     {list.map((item,index)=>{
-                        // @ts-ignore
+
                         return <div key={index} className={"list-table-format"}>
                             <img src={`http://localhost:4000/images/`+item.image} alt="" className={"w-[50px]"} />
                             <p>{item.name}</p>
                             <p>{item.category}</p>
                             <p>{item.price}</p>
-                            <p>X</p>
+                            <p className={"cursor  cursor-pointer"} onClick={()=>removeFood(item._id)}>X</p>
                         </div>
                     })}
                 </div>
