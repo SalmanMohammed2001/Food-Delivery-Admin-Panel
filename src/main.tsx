@@ -4,8 +4,10 @@ import App from './App.tsx'
 import './index.css'
 import {BrowserRouter} from "react-router-dom";
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
+      {/*<ToastContainer theme={'dark'} position={'top-right'} autoClose={3000} closeOnClick pauseOnHover={false}/>*/}
     <App />
   </BrowserRouter>,
 )
